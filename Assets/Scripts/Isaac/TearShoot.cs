@@ -18,14 +18,16 @@ public class TearShoot : MonoBehaviour
 
     void ShootTear()
     {
-        // Instanciar la lágrima
+        // Instanciar la lï¿½grima
         GameObject tear = Instantiate(tearPrefab, firePoint.position, firePoint.rotation);
 
-        // Aplicar movimiento a la lágrima
+        // Aplicar movimiento a la lï¿½grima
         Rigidbody rb = tear.GetComponent<Rigidbody>();
         if (rb != null)
         {
             rb.AddForce(firePoint.forward * tearSpeed, ForceMode.VelocityChange);
         }
+        Destroy(tear, 2f);
     }
+
 }

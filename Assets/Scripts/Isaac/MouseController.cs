@@ -2,29 +2,19 @@ using UnityEngine;
 
 public class MouseController : MonoBehaviour
 {
+    public float mouseSensitivity = 100f; // Sensibilidad del mouse
+    public Transform playerBody; // Referencia al cuerpo del jugador
 
-    public float mouseSensitivity = 100f;
-    public Transform playerBody;
-
-    private float xRotation = 0f;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked; // Bloquear el cursor en el centro de la pantalla
     }
 
-    // Update is called once per frame
     void Update()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-
+        // Rotar solo el cuerpo de Isaac en el eje Y (horizontal)
         playerBody.Rotate(Vector3.up * mouseX);
     }
 }
