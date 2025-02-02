@@ -30,4 +30,15 @@ public class TearShoot : MonoBehaviour
         Destroy(tear, 2f);
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            Debug.Log("Lágrima impactó un enemigo");
+            //Destroy(other.gameObject); // Mata al enemigo
+            //Destroy(gameObject); // Destruye la lágrima
+        }
+    }
+
+
 }
