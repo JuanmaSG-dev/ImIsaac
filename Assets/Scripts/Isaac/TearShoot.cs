@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 
 public class TearShoot : MonoBehaviour
 {
@@ -41,4 +41,35 @@ public class TearShoot : MonoBehaviour
     }
 
 
+}*/
+
+using UnityEngine;
+
+public class TearShoot : MonoBehaviour
+{
+    public GameObject tearPrefab;
+    public Transform firePoint;
+    public float tearSpeed = 20f;
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            ShootTear();
+        }
+    }
+
+    void ShootTear()
+    {
+        GameObject tear = Instantiate(tearPrefab, firePoint.position, firePoint.rotation);
+        Rigidbody rb = tear.GetComponent<Rigidbody>();
+
+        if (rb != null)
+        {
+            rb.linearVelocity = firePoint.forward * tearSpeed; // Nueva forma recomendada en Unity 6
+        }
+
+        Destroy(tear, 2f);
+    }
 }
+
