@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Tear
   - Enemy
+  - Rock
   layers:
   - Default
   - TransparentFX

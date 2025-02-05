@@ -8,10 +8,21 @@ public class PlayerHealth : MonoBehaviour
     {
         health -= damage;
         Debug.Log("Isaac recibió daño. Vida restante: " + health);
-
+        HUDManager.Instance.UpdateHearts(health);
         if (health <= 0)
         {
             Die();
+        }
+    }
+
+    public void Heal() {
+        if (health >= 3f)
+        {
+            Debug.Log("Tu vida está al máximo.");
+        } else {
+            health += 1f;
+            Debug.Log("Isaac recibió curación. Vida restante: " + health);
+            HUDManager.Instance.UpdateHearts(health);
         }
     }
 

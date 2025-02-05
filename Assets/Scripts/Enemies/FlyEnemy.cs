@@ -111,7 +111,7 @@ public class FlyEnemy : MonoBehaviour
         }
     }
 
-    void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         hp -= damage;
         Debug.Log("Mosca impactada. Vida restante: " + hp);
