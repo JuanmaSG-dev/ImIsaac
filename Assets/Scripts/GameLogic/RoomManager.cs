@@ -6,7 +6,7 @@ public class RoomManager : MonoBehaviour
     public static RoomManager Instance;
     public List<Room> rooms; // Lista de todas las salas
     public GameObject doorPrefab;
-    public List<GameObject> pickupPrefabs; // Cofre o ítem aleatorio
+    public List<GameObject> pickupPrefabs; // Cofre o ï¿½tem aleatorio
 
     private void Awake()
     {
@@ -24,7 +24,7 @@ public class RoomManager : MonoBehaviour
         Room room = rooms.Find(r => r.id == roomID);
         if (room == null) return;
 
-        Debug.Log($"Isaac entró en la sala {roomID}");
+        Debug.Log($"Isaac entro en la sala {roomID}");
 
         // Instanciar puertas
         foreach (Transform puertaPos in room.zonaPuerta)
@@ -45,7 +45,7 @@ public class RoomManager : MonoBehaviour
         Room room = rooms.Find(r => r.id == roomID);
         if (room == null) return;
 
-        // Si no hay ningún objeto con el tag "Enemy", entonces la sala está limpia
+        // Si no hay ningï¿½n objeto con el tag "Enemy", entonces la sala estï¿½ limpia
         if (!GameObject.FindGameObjectWithTag("Enemy"))
         {
             Debug.Log($"Sala {roomID} limpia. Abriendo puertas.");
@@ -69,7 +69,7 @@ public class RoomManager : MonoBehaviour
         // Elegir un pickup aleatorio
         GameObject selectedPickup = pickupPrefabs[Random.Range(0, pickupPrefabs.Count)];
 
-        // Instanciarlo en la posición dada
+        // Instanciarlo en la posiciï¿½n dada
         Instantiate(selectedPickup, position, Quaternion.identity);
     }
 
