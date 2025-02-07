@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 465587594536668126}
   - component: {fileID: 7296059806476324113}
   - component: {fileID: 6272931279806836167}
-  - component: {fileID: 1877069203370252395}
+  - component: {fileID: 7012295253115616781}
   m_Layer: 0
   m_Name: BombPickup
   m_TagString: Untagged
@@ -105,11 +105,8 @@ MonoBehaviour:
   rotationSpeed: 50
   floatSpeed: 0.5
   floatAmount: 0.1
-  pennyText: {fileID: 0}
-  bombText: {fileID: 0}
-  keyText: {fileID: 0}
---- !u!135 &1877069203370252395
-SphereCollider:
+--- !u!136 &7012295253115616781
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -126,6 +123,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 2
   m_Radius: 1
+  m_Height: 4
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}

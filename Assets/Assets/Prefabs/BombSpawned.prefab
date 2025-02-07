@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 3509869957328054522}
   - component: {fileID: 9070966793374442587}
   - component: {fileID: 5804102966704716935}
+  - component: {fileID: 5327487413569252965}
   m_Layer: 0
   m_Name: BombSpawned
   m_TagString: Untagged
@@ -209,5 +210,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionRadius: 3
-  explosionDelay: 3
+  explosionDelay: 1
   damage: 10
+--- !u!95 &5327487413569252965
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4901578041577343053}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 49eb4a5866145fb41a5595f4177f8898, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

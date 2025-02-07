@@ -29,6 +29,9 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         Debug.Log("Isaac ha muerto");
-        // Aquí puedes hacer que aparezca una pantalla de Game Over
+        Heal();
+        Heal();
+        Heal();
+        this.transform.position = new Vector3(0, 0, 11.0500002f);
     }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 147994473117214453}
   - component: {fileID: 8891303821570443802}
   - component: {fileID: 6802573140449473997}
-  - component: {fileID: 1308925574948053989}
+  - component: {fileID: -8986751152696799020}
   m_Layer: 0
   m_Name: PennyPickup
   m_TagString: Untagged
@@ -105,11 +105,8 @@ MonoBehaviour:
   rotationSpeed: 50
   floatSpeed: 0.5
   floatAmount: 0.1
-  pennyText: {fileID: 0}
-  bombText: {fileID: 0}
-  keyText: {fileID: 0}
---- !u!135 &1308925574948053989
-SphereCollider:
+--- !u!136 &-8986751152696799020
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -126,6 +123,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 2
   m_Radius: 1
+  m_Height: 4
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}

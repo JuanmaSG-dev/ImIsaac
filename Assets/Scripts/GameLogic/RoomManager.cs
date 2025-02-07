@@ -27,11 +27,21 @@ public class RoomManager : MonoBehaviour
         Debug.Log($"Isaac entro en la sala {roomID}");
 
         // Instanciar puertas
-        foreach (Transform puertaPos in room.zonaPuerta)
+        /*foreach (Transform puertaPos in room.zonaPuerta)
         {
             GameObject puerta = Instantiate(doorPrefab, puertaPos.position, puertaPos.rotation);
             room.doors.Add(puerta);
+        }*/
+        foreach (Transform puertaPos in room.zonaPuerta)
+        {
+            // Usamos TransformPoint para asegurar que la posición sea global
+            Vector3 globalPosition = puertaPos.parent.TransformPoint(puertaPos.localPosition);
+            Quaternion globalRotation = puertaPos.parent.rotation * puertaPos.localRotation;
+
+            GameObject puerta = Instantiate(doorPrefab, globalPosition, globalRotation);
+            room.doors.Add(puerta);
         }
+
 
         // Activar enemigos
         foreach (GameObject enemy in room.enemigos)
@@ -52,7 +62,7 @@ public class RoomManager : MonoBehaviour
 
             foreach (GameObject puerta in room.doors)
             {
-                Destroy(puerta);
+                Destroy(puerta, 1f);
             }
             room.doors.Clear();
 
