@@ -21,7 +21,7 @@ public class Bomb : MonoBehaviour
             if (nearby.CompareTag("Enemy"))
             {
                 Debug.Log("Enemigo alcanzado por explosión");
-                FlyEnemy enemy = nearby.GetComponent<FlyEnemy>();
+                EnemyHP enemy = nearby.GetComponent<EnemyHP>();
                 if (enemy != null)
                 {
                     enemy.TakeDamage(damage);

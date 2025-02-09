@@ -25,22 +25,22 @@ public class Campfire : MonoBehaviour
         }
         else if (other.CompareTag("Enemy"))
         {
-            FlyEnemy enemy = other.GetComponent<FlyEnemy>();
+            EnemyHP enemy = other.GetComponent<EnemyHP>();
             if (enemy != null)
             {
-                enemy.TakeDamage(10f); // O el daño que quieras para los enemigos
+                enemy.TakeDamage(10f); // O el daï¿½o que quieras para los enemigos
             }
         }
         else if (other.CompareTag("Tear"))
         {
             ExtinguishFire();
-            Destroy(other.gameObject); // Destruir la lágrima tras impacto
+            Destroy(other.gameObject); // Destruir la lï¿½grima tras impacto
         }
     }
 
     void ExtinguishFire()
     {
-        if (!hasFire) return; // Si ya está apagada, no hacer nada
+        if (!hasFire) return; // Si ya estï¿½ apagada, no hacer nada
 
         hasFire = false;
         UpdateFireState();

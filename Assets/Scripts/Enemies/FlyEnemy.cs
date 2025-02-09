@@ -1,18 +1,17 @@
-
-
 using UnityEngine;
 using UnityEngine.AI;
 
 public class FlyEnemy : MonoBehaviour
 {
     public float speed = 3.5f;
-    public float hp = 7f;
     private Transform player;
     private NavMeshAgent agent;
+    private EnemyHP enemyHP;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        enemyHP = GetComponent<EnemyHP>(); // Referencia al script de vida
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         if (agent != null)
@@ -29,16 +28,6 @@ public class FlyEnemy : MonoBehaviour
         }
     }
 
-    // Cuando la lágrima golpea
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Tear"))
-        {
-            TakeDamage(3.5f);
-            Destroy(other.gameObject); // La lágrima desaparece
-        }
-    }
-
     // Cuando choca con Isaac
     void OnCollisionEnter(Collision collision)
     {
@@ -51,22 +40,4 @@ public class FlyEnemy : MonoBehaviour
             }
         }
     }
-
-    public void TakeDamage(float damage)
-    {
-        hp -= damage;
-        Debug.Log("Mosca impactada. Vida restante: " + hp);
-
-        if (hp <= 0)
-        {
-            Die();
-        }
-    }
-
-    void Die()
-    {
-        Debug.Log("Mosca ha muerto");
-        Destroy(gameObject, 0.3f);
-    }
 }
-
