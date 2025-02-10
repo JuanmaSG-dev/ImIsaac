@@ -30,6 +30,14 @@ public class HUDManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        UpdateBombs(bombCount);
+        UpdateHearts(3);
+        UpdateKeys(keyCount);
+        UpdatePennies(pennyCount);
+    }
+
     public void UpdateHearts(float health)
     {
         for (int i = 0; i < hearts.Length; i++)

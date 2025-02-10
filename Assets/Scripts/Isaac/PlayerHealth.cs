@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -32,6 +33,6 @@ public class PlayerHealth : MonoBehaviour
         Heal();
         Heal();
         Heal();
-        this.transform.position = new Vector3(0, 0, 11.0500002f);
+        SceneManager.LoadScene("Basement");
     }
 }

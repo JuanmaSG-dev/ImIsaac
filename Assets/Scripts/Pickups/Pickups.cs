@@ -7,10 +7,14 @@ public class Pickups : MonoBehaviour
     public float floatSpeed = 0.5f; // Velocidad de movimiento vertical
     public float floatAmount = 0.2f; // Amplitud del movimiento vertical
     private Vector3 startPos;
+    private SpriteRenderer spriteRender;
+    public PlayerMovement playerMovement;
+    public TearShoot ts;
 
     void Start()
     {
         startPos = transform.position;
+        spriteRender = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -39,6 +43,21 @@ public class Pickups : MonoBehaviour
                     break;
                 case "Penny":
                     HUDManager.Instance.CollectPenny();
+                    break;
+                case "Item":
+                    if (spriteRender.sprite.name == "SadOnion")
+                    {
+                        ts.tearStats.fireRate = 0.2f;
+                    }
+                    if (spriteRender.sprite.name == "CricketHead")
+                    {
+                        ts.tearStats.damage = 7;
+                    }
+                    if (spriteRender.sprite.name == "RoidRage")
+                    {
+                        ts.tearStats.range = 5;
+                        playerMovement.moveSpeed = 5;
+                    }
                     break;
             }
             Destroy(gameObject, 0.3f);
