@@ -10,11 +10,18 @@ public class Pickups : MonoBehaviour
     private SpriteRenderer spriteRender;
     public PlayerMovement playerMovement;
     public TearShoot ts;
+    public Sprite[] itemSprites; // Array con los sprites de los ítems
+
 
     void Start()
     {
         startPos = transform.position;
         spriteRender = GetComponent<SpriteRenderer>();
+
+        if (pickupType == "Item" && itemSprites.Length > 0)
+        {
+            spriteRender.sprite = itemSprites[Random.Range(0, itemSprites.Length)];
+        }
     }
 
     void Update()
@@ -45,15 +52,11 @@ public class Pickups : MonoBehaviour
                     HUDManager.Instance.CollectPenny();
                     break;
                 case "Item":
-                    if (spriteRender.sprite.name == "SadOnion")
-                    {
-                        ts.tearStats.fireRate = 0.2f;
-                    }
-                    if (spriteRender.sprite.name == "CricketHead")
-                    {
-                        ts.tearStats.damage = 7;
-                    }
-                    if (spriteRender.sprite.name == "RoidRage")
+                    string itemName = spriteRender.sprite.name;
+
+                    if (itemName == "SadOnion") ts.tearStats.fireRate = 0.2f;
+                    if (itemName == "CricketHead") ts.tearStats.damage = 7;
+                    if (itemName == "RoidRage")
                     {
                         ts.tearStats.range = 5;
                         playerMovement.moveSpeed = 5;
@@ -63,4 +66,5 @@ public class Pickups : MonoBehaviour
             Destroy(gameObject, 0.3f);
         }
     }
+
 }
