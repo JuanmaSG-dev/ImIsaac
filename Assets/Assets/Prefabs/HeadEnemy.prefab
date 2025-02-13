@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2408793396848004019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7659923187656628049}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7659923187656628049
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2408793396848004019}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.247, z: 0.221}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7558203911731034519}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &8029525699541819004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -79,7 +110,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2753122800458959069, guid: 5d329562a2f84f34780da697dc7174b0, type: 3}
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5d329562a2f84f34780da697dc7174b0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7659923187656628049}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5d329562a2f84f34780da697dc7174b0, type: 3}
       insertIndex: -1
@@ -93,6 +127,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5d329562a2f84f34780da697dc7174b0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8456469107069544692}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5d329562a2f84f34780da697dc7174b0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8728800667924462650}
     - targetCorrespondingSourceObject: {fileID: -3141319661590588651, guid: 5d329562a2f84f34780da697dc7174b0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 194723874540415606}
@@ -159,7 +196,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.2
   m_Center: {x: 0, y: 0.25, z: 0}
@@ -212,3 +249,24 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &8728800667924462650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7183226859541390125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5741ca4e3f4b2ca4a8827a7becd3578c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyTearPrefab: {fileID: 6648816772440147109, guid: 3e82731fd78d40348b6baa90975bf8bf, type: 3}
+  firePoint: {fileID: 7659923187656628049}
+  shootInterval: 2
+  tearSpeed: 10
+--- !u!4 &7558203911731034519 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5d329562a2f84f34780da697dc7174b0, type: 3}
+  m_PrefabInstance: {fileID: 8029525699541819004}
+  m_PrefabAsset: {fileID: 0}
