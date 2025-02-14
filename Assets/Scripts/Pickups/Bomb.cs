@@ -4,7 +4,8 @@ public class Bomb : MonoBehaviour
 {
     public float explosionRadius = 3f; // Radio de la explosión
     public float explosionDelay = 3f; // Tiempo antes de explotar
-    public float damage = 10f; // Daño que causa
+    public float damage = 20f; // Daño que causa
+    public GameObject explosionEffect;
 
     void Start()
     {
@@ -14,6 +15,9 @@ public class Bomb : MonoBehaviour
     void Explode()
     {
         Debug.Log("¡Bomba explotó!");
+
+        // Instanciar la explosión en la posición de la bomba
+        GameObject Explosion = Instantiate(explosionEffect, transform.position, Quaternion.identity);
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
         foreach (Collider nearby in colliders)
@@ -43,6 +47,9 @@ public class Bomb : MonoBehaviour
             }
         }
 
-        Destroy(gameObject); // Destruir la bomba después de explotar
+        // Destruir la bomba después de explotar
+        Destroy(gameObject);
+        Destroy(Explosion, 3f); // Destruir la explosión después de 3 segundos
     }
+
 }
