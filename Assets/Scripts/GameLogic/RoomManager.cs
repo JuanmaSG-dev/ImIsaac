@@ -65,7 +65,10 @@ public class RoomManager : MonoBehaviour
                 Destroy(puerta, 1f);
             }
             room.doors.Clear();
-
+            if (roomID == 16) {
+                QuestManager.Instance.SetQuest1(true);
+                // Victoria, fin del juego.
+            }
             // Spawn de recompensa
             SpawnPickup(room.pickupSpawnPoint.position);
         }

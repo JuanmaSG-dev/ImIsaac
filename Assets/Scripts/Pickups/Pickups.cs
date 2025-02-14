@@ -52,6 +52,7 @@ public class Pickups : MonoBehaviour
                     HUDManager.Instance.CollectPenny();
                     break;
                 case "Item":
+                    QuestManager.Instance.SetQuest3(true);
                     string itemName = spriteRender.sprite.name;
 
                     if (itemName == "SadOnion") ts.tearStats.fireRate = 0.2f;
