@@ -229,6 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 20
+  deathSound: {fileID: 8300000, guid: b0daa50810ffd2c4ba7edc60c17327bc, type: 3}
 --- !u!4 &2180957428625485865 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fb978347a005d4d4b800be88a19731a4, type: 3}

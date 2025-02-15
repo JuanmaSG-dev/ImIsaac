@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class QuestManager : MonoBehaviour
 {
@@ -31,9 +32,9 @@ public class QuestManager : MonoBehaviour
     void Update() {
         if (Secret1 && Secret2)
             SetQuest2(true);
-
+        if (Quest1 && Quest2 && Quest3)
+            SceneManager.LoadScene("Menu");
     }
-
     public void SetQuest1(bool value)
     {
         Quest1 = value;

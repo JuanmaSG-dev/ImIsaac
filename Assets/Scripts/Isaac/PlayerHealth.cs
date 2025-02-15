@@ -7,6 +7,9 @@ public class PlayerHealth : MonoBehaviour
     public float health = 3f; // 3 corazones (cada uno vale 2 de vida)
     public bool isInvulnerable = false;
     public float invulnerabilityDuration = 0.5f;
+    public AudioClip hurtSound;
+    public AudioClip healSound;
+    public AudioClip deathSound;
 
     public void TakeDamage(float damage)
     {
@@ -18,10 +21,12 @@ public class PlayerHealth : MonoBehaviour
 
         if (health <= 0)
         {
-            Die();
+            StartCoroutine(Die());
         }
         else
         {
+            AudioSource audioSource = Camera.main.GetComponent<AudioSource>();
+            audioSource.PlayOneShot(hurtSound);
             StartCoroutine(InvulnerabilityTimer());
         }
     }
@@ -31,6 +36,8 @@ public class PlayerHealth : MonoBehaviour
         {
             Debug.Log("Tu vida está al máximo.");
         } else {
+            AudioSource audioSource = Camera.main.GetComponent<AudioSource>();
+            audioSource.PlayOneShot(healSound);
             health += 1f;
             Debug.Log("Isaac recibió curación. Vida restante: " + health);
             HUDManager.Instance.UpdateHearts(health);
@@ -44,9 +51,12 @@ public class PlayerHealth : MonoBehaviour
         isInvulnerable = false;
     }
 
-    void Die()
+    IEnumerator Die()
     {
+        AudioSource audioSource = Camera.main.GetComponent<AudioSource>();
+        audioSource.PlayOneShot(deathSound);
         Debug.Log("Isaac ha muerto");
+        yield return new WaitForSeconds(2f);
         Heal();
         Heal();
         Heal();

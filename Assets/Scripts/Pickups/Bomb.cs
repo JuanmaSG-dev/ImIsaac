@@ -6,6 +6,7 @@ public class Bomb : MonoBehaviour
     public float explosionDelay = 3f; // Tiempo antes de explotar
     public float damage = 20f; // Daño que causa
     public GameObject explosionEffect;
+    public AudioClip explosionSound;
 
     void Start()
     {
@@ -15,7 +16,9 @@ public class Bomb : MonoBehaviour
     void Explode()
     {
         Debug.Log("¡Bomba explotó!");
-
+        // Play Explosion Sound
+        AudioSource audioSource = Camera.main.GetComponent<AudioSource>();
+        audioSource.PlayOneShot(explosionSound);
         // Instanciar la explosión en la posición de la bomba
         GameObject Explosion = Instantiate(explosionEffect, transform.position, Quaternion.identity);
 

@@ -5,6 +5,7 @@ public class EnemyHP : MonoBehaviour
     public float maxHP;
     private float currentHP;
     public float CurrentHP { get { return currentHP; } } // Nueva propiedad para acceder a la vida actual
+    public AudioClip deathSound;
 
     private void Start()
     {
@@ -26,6 +27,8 @@ public class EnemyHP : MonoBehaviour
 
     private void Die()
     {
+        AudioSource audioSource = Camera.main.GetComponent<AudioSource>();
+        audioSource.PlayOneShot(deathSound);
         Debug.Log(gameObject.name + " ha muerto");
         Destroy(gameObject, 0.3f);
     }

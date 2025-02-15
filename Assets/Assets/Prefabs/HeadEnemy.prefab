@@ -179,6 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 16
+  deathSound: {fileID: 8300000, guid: b0daa50810ffd2c4ba7edc60c17327bc, type: 3}
 --- !u!135 &3748649334594616554
 SphereCollider:
   m_ObjectHideFlags: 0

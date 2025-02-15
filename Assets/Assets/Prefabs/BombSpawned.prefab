@@ -213,6 +213,7 @@ MonoBehaviour:
   explosionDelay: 1
   damage: 10
   explosionEffect: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b, type: 3}
+  explosionSound: {fileID: 8300000, guid: 54075d4f703a0ae42a1494e1960e67c8, type: 3}
 --- !u!95 &5327487413569252965
 Animator:
   serializedVersion: 7
